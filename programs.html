@@ -437,57 +437,48 @@
     .featured-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: stretch; /* both columns fill full row height */
-      min-height: 650px; /* drives row height — images fill this, text centers within it */
+      gap: 80px;
+      align-items: center;
     }
-    .featured-images {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-self: stretch; /* images stretch to full row height */
-    }
-    .featured-images img {
-      flex: 1;
-      width: 100%;
-      object-fit: cover;
+    .featured-img {
       border-radius: 8px;
-      min-height: 0; /* required for flex children to shrink below content size */
+      overflow: hidden;
+      position: relative;
     }
-    .featured-content {
-      align-self: center; /* text vertically centers within the taller row */
+    .featured-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
     }
+    .featured-img:hover img { transform: scale(1.05); }
     .featured-content h2 {
       font-family: var(--font-serif);
-      font-size: clamp(30px, 3.5vw, 44px);
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 500;
       color: var(--white);
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .featured-content p {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--cream);
-      line-height: 1.7;
-      margin-bottom: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
     .featured-highlight {
       background: rgba(77,143,255,0.1);
       border-left: 3px solid var(--blue-light);
-      padding: 18px 20px;
-      margin: 14px 0;
+      padding: 24px;
+      margin: 32px 0;
       border-radius: 4px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--cream);
     }
     .featured-highlight strong {
       display: block;
       color: var(--white);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 700;
-      font-size: 15px;
     }
     .btn-outline {
       display: inline-flex;
@@ -517,7 +508,7 @@
     ============================ */
     .age-groups {
       padding: 100px 0;
-      background: var(--blue-deep);
+      background: var(--off-white);
     }
     .age-groups-header {
       text-align: center;
@@ -527,13 +518,13 @@
       font-family: var(--font-serif);
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 500;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 12px;
     }
     .age-groups-subtitle {
       font-size: 16px;
       font-weight: 300;
-      color: rgba(255,255,255,0.7);
+      color: var(--gray);
       max-width: 600px;
       margin: 0 auto;
     }
@@ -764,9 +755,6 @@
     }
 
     /* ============================
-       FEATURED IMAGES LAYOUT
-    ============================ */
-    /* ============================
        FOOTER
     ============================ */
     .footer {
@@ -858,9 +846,8 @@
       .mobile-top-bar { display: flex !important; }
       .nav-toggle { display: flex; }
       .page-hero { margin-top: 60px; }
-      .featured-grid { grid-template-columns: 1fr; gap: 40px; min-height: unset; }
-      .featured-images { flex-direction: row; gap: 8px; }
-      .featured-images img { flex: 1; height: 280px; min-height: unset; }
+      .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+      .featured-img img { height: 320px; }
       .programs-grid { grid-template-columns: repeat(2, 1fr); }
       .age-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -884,8 +871,7 @@
       .page-hero-title { font-size: clamp(28px, 8vw, 40px); }
       .program-card { padding: 28px 20px; }
       .age-card { padding: 32px 20px; }
-      .featured-images { flex-direction: column; }
-      .featured-images img { flex: none; height: 220px; }
+      .featured-grid { gap: 30px; }
       .faq-item { padding: 20px 0; }
       .faq-question-text { font-size: 16px; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -993,9 +979,8 @@
   <section class="featured-section reveal">
     <div class="container">
       <div class="featured-grid">
-        <div class="featured-images">
-          <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=600&q=80" alt="Beast Boogie performing">
-          <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&q=80" alt="Breakdance class">
+        <div class="featured-img">
+          <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80" alt="Birthday party with Beast Boogie">
         </div>
         <div class="featured-content">
           <h2>Birthday Parties: Your Flagship Experience</h2>
@@ -1297,7 +1282,7 @@
     }
 
     // Initialize on load
-    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); });
+    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); initScrollReveal(); });
     setActiveNav();
   </script>
 </body>
