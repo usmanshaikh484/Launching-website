@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gallery | Beast Boogie | B-Boy. Educator. Legend.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep:    #001487;
+      --blue-link:    #001489;
+      --blue-hover:   #1e73be;
+      --blue-light:   #4d8fff;
+      --dark-bg:      #111a1a;
+      --dark-card:    #1a2222;
+      --dark-border:  rgba(255,255,255,0.08);
+      --white:        #ffffff;
+      --off-white:    #f9f9f9;
+      --cream:        #cecece;
+      --gray:         #777777;
+      --black:        #000000;
+      --orange:       #FF5500;
+      --font-serif:   'Bodoni Moda', Georgia, serif;
+      --font-sans:    'Open Sans', -apple-system, sans-serif;
+      --font-display: 'Bebas Neue', impact, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark-bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--blue-deep); color: var(--white); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================
+       SIDEBAR NAVIGATION (Desktop)
+    ============================ */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 250px;
+      background: rgb(0, 0, 0);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 30px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-deep);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .nav-logo-text span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      position: relative;
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-hover);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-hover);
+      border-left-color: var(--blue-hover);
+      background: rgba(30, 115, 190, 0.08);
+    }
+
+    .nav-cta {
+      background: var(--blue-deep) !important;
+      color: var(--white) !important;
+      padding: 12px 28px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.3s ease !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      width: auto !important;
+      border-left: none !important;
+      margin: 20px 0 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover) !important;
+      transform: translateY(-2px);
+    }
+
+    .sidebar-social {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0 30px;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+
+    /* Mobile toggle (hidden by default) */
+    .mobile-top-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      z-index: 998;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mobile-top-bar.show { display: flex; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 997;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding-top: 40px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--blue-hover);
+    }
+
+    .mobile-menu .mob-cta {
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px !important;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 20px 0;
+      width: auto;
+    }
+
+    .mobile-menu .mob-cta:hover {
+      background: var(--blue-hover);
+    }
+
+    /* Page wrapper with left margin */
+    .page-wrapper {
+      margin-left: 250px;
+    }
+
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--cream);
+      transition: color 0.3s ease;
+    }
+    .mobile-menu a:hover { color: var(--blue-light); }
+    .mobile-menu .mob-cta {
+      margin-top: 12px;
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ============================
+       GALLERY HERO
+    ============================ */
+    .gallery-hero {
+      position: relative;
+      width: 100%;
+      padding: 200px 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue-deep);
+      margin-top: 0;
+    }
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(77,143,255,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+    .gallery-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+    .gallery-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s ease 0.15s both;
+    }
+    .gallery-hero p {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      animation: fadeInUp 0.8s ease 0.45s both;
+    }
+    .breadcrumb span { color: var(--blue-light); }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================
+       FILTER BAR
+    ============================ */
+    .filter-section {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(17,26,26,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+    }
+    .filter-bar {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.08);
+      color: var(--cream);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover {
+      background: rgba(77,143,255,0.2);
+      border-color: var(--blue-light);
+      color: var(--white);
+    }
+    .filter-btn.active {
+      background: var(--blue-deep);
+      border-color: var(--blue-light);
+      color: var(--white);
+    }
+
+    /* ============================
+       GALLERY GRID
+    ============================ */
+    .gallery-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark-card);
+      border-radius: 8px;
+      cursor: pointer;
+      height: 300px;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--dark-border);
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,20,135,0.3);
+    }
+    .gallery-emoji {
+      font-size: clamp(32px, 8vw, 80px);
+      text-align: center;
+      line-height: 1;
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,20,135,0.7) 60%, rgba(0,20,135,0.95) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 8px;
+    }
+    .gallery-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .gallery-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+    }
+    /* Play button for videos */
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(77,143,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--white);
+      z-index: 2;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+    .gallery-item.video:hover .play-btn {
+      opacity: 1;
+    }
+    /* Accent bars for different categories */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--blue-light);
+      z-index: 1;
+    }
+    .gallery-item.battles::before { background: #FF5500; }
+    .gallery-item.performances::before { background: #4d8fff; }
+    .gallery-item.schools::before { background: #00d9ff; }
+    .gallery-item.tutorials::before { background: #76ff00; }
+    .gallery-item.behind::before { background: #b300ff; }
+
+    /* ============================
+       LIGHTBOX
+    ============================ */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 2000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-content {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-emoji {
+      font-size: 120px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .lightbox-info {
+      position: absolute;
+      bottom: -80px;
+      left: 0; right: 0;
+      text-align: center;
+      color: var(--white);
+    }
+    .lightbox-category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 8px;
+    }
+    .lightbox-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--white);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--white);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: var(--white);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--white);
+      font-size: 18px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: var(--white);
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    /* ============================
+       GALLERY STATS
+    ============================ */
+    .gallery-stats {
+      padding: 60px 0;
+      background: var(--dark-bg);
+      text-align: center;
+    }
+    .stats-content {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 0 1 auto;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--blue-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ============================
+       CTA SECTION
+    ============================ */
+    .cta-banner {
+      padding: 100px 0;
+      background: var(--blue-deep);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(77,143,255,0.15) 0%, transparent 60%);
+    }
+    .cta-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: var(--black);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-col a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-legal a:hover { color: var(--blue-light); }
+
+    /* ============================
+    /* ============================
+       SCROLL REVEAL ANIMATIONS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item.reveal {
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-item.reveal:nth-child(1) { transition-delay: 0s; }
+    .gallery-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+    .gallery-item.reveal:nth-child(3) { transition-delay: 0.2s; }
+    .gallery-item.reveal:nth-child(4) { transition-delay: 0.1s; }
+    .gallery-item.reveal:nth-child(5) { transition-delay: 0.2s; }
+    .gallery-item.reveal:nth-child(6) { transition-delay: 0.3s; }
+    .gallery-item.reveal:nth-child(n+7) { transition-delay: 0.2s; }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      .sidebar { display: none !important; visibility: hidden !important; width: 0 !important; overflow: hidden !important; }
+      .page-wrapper { margin-left: 0 !important; }
+      .mobile-top-bar { display: flex !important; }
+      .nav-toggle { display: flex; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+      .gallery-item {
+        height: 300px !important;
+      }
+      .filter-section { top: 0; }
+      .gallery-hero { min-height: 300px; padding: 120px 20px 40px; }
+      .gallery-hero h1 { font-size: clamp(32px, 7vw, 48px); }
+      .stats-content { gap: 40px; }
+      .stat-number { font-size: 36px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-hero { padding: 100px 20px 30px; }
+      .filter-bar { gap: 8px; }
+      .filter-btn { padding: 8px 16px; font-size: 11px; }
+      .lightbox-emoji { font-size: 80px; }
+      .lightbox-nav { width: 32px; height: 32px; }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+      .stats-content { gap: 30px; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (Desktop only) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo-area">
+      <a href="beastboogie-exp.html" class="nav-logo">
+        <div class="nav-logo-mark">BB</div>
+        <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="schools.html">Schools</a>
+      <a href="programs.html">Programs</a>
+      <a href="learn-online.html">Learn Online</a>
+      <a href="gallery-exp.html">Gallery</a>
+      <a href="shop.html">Shop</a>
+      <a href="book.html" class="nav-cta">Book Now</a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.tiktok.com/@beastboogie" target="_blank" title="TikTok">T</a>
+      <a href="https://www.instagram.com/beastboogie/" target="_blank" title="Instagram">I</a>
+      <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" title="Facebook">F</a>
+      <a href="https://www.youtube.com/@BeastBoogie" target="_blank" title="YouTube">Y</a>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-top-bar" id="mobileTopBar">
+    <a href="beastboogie-exp.html" class="nav-logo" style="gap: 8px; flex-direction: row; margin: 0;">
+      <div class="nav-logo-mark" style="width: 36px; height: 36px; font-size: 16px;">BB</div>
+      <div class="nav-logo-text" style="font-size: 11px;">BEAST <span>BOOGIE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="gallery-exp.html" onclick="closeMenu()" class="active">Gallery Exp</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="schools.html" onclick="closeMenu()">Schools</a>
+    <a href="programs.html" onclick="closeMenu()">Programs</a>
+    <a href="learn-online.html" onclick="closeMenu()">Learn Online</a>
+    <a href="gallery-exp.html" onclick="closeMenu()">Gallery</a>
+    <a href="shop.html" onclick="closeMenu()">Shop</a>
+    <a href="book.html" onclick="closeMenu()" class="mob-cta">Book Now</a>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper" id="pageWrapper">
+    <!-- GALLERY HERO -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-content">
+      <h1>Gallery</h1>
+      <p>28 years of breaking, performing, and teaching — captured.</p>
+      <div class="breadcrumb">
+        <a href="beastboogie-exp.html">Home</a> &nbsp;/ &nbsp; Gallery
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-section">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="battles">Battles</button>
+      <button class="filter-btn" data-filter="performances">Performances</button>
+      <button class="filter-btn" data-filter="schools">Schools</button>
+      <button class="filter-btn" data-filter="tutorials">Tutorials</button>
+      <button class="filter-btn" data-filter="behind">Behind the Scenes</button>
+    </div>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Item 1 -->
+        <div class="gallery-item reveal battles" data-category="battles" data-title="Red Bull BC One Qualifier" data-desc="Championship moment in Houston" onclick="openLightbox(0)">
+          <div class="gallery-emoji">🏆</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Battles</div>
+            <div class="gallery-title">Red Bull BC One Qualifier</div>
+            <div class="gallery-desc">Championship moment in Houston</div>
+          </div>
+        </div>
+
+        <!-- Item 2: Regular -->
+        <div class="gallery-item reveal performances" data-category="performances" data-title="World Tour Finale" data-desc="Tokyo Performance 2024" onclick="openLightbox(1)">
+          <div class="gallery-emoji">🌍</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Performances</div>
+            <div class="gallery-title">World Tour Finale</div>
+            <div class="gallery-desc">Tokyo Performance 2024</div>
+          </div>
+        </div>
+
+        <!-- Item 3: Regular -->
+        <div class="gallery-item reveal schools" data-category="schools" data-title="Austin ISD Assembly" data-desc="2,000+ Students Inspired" onclick="openLightbox(2)">
+          <div class="gallery-emoji">🏫</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Schools</div>
+            <div class="gallery-title">Austin ISD Assembly</div>
+            <div class="gallery-desc">2,000+ Students Inspired</div>
+          </div>
+        </div>
+
+        <!-- Item 4: Regular -->
+        <div class="gallery-item reveal tutorials" data-category="tutorials" data-title="Top Rock Masterclass" data-desc="Footwork Foundation" onclick="openLightbox(3)">
+          <div class="gallery-emoji">👟</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Tutorials</div>
+            <div class="gallery-title">Top Rock Masterclass</div>
+            <div class="gallery-desc">Footwork Foundation</div>
+          </div>
+        </div>
+
+        <!-- Item 5: Regular -->
+        <div class="gallery-item reveal behind" data-category="behind" data-title="Studio Session" data-desc="Teaching Behind the Scenes" onclick="openLightbox(4)">
+          <div class="gallery-emoji">📹</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Behind the Scenes</div>
+            <div class="gallery-title">Studio Session</div>
+            <div class="gallery-desc">Teaching Behind the Scenes</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item reveal battles" data-category="battles" data-title="Cypher Battle 2024" data-desc="Finals Championship" onclick="openLightbox(5)">
+          <div class="gallery-emoji">⚡</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Battles</div>
+            <div class="gallery-title">Cypher Battle 2024</div>
+            <div class="gallery-desc">Finals Championship</div>
+          </div>
+        </div>
+
+        <!-- Item 7: Regular -->
+        <div class="gallery-item reveal performances video" data-category="performances" data-title="Festival Headliner" data-desc="Video Highlight Reel" onclick="openLightbox(6)">
+          <div class="gallery-emoji">🎬</div>
+          <div class="play-btn">▶</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Performances</div>
+            <div class="gallery-title">Festival Headliner</div>
+            <div class="gallery-desc">Video Highlight Reel</div>
+          </div>
+        </div>
+
+        <!-- Item 8: Regular -->
+        <div class="gallery-item reveal schools" data-category="schools" data-title="Dallas Youth Program" data-desc="Summer Camp Finale" onclick="openLightbox(7)">
+          <div class="gallery-emoji">🎓</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Schools</div>
+            <div class="gallery-title">Dallas Youth Program</div>
+            <div class="gallery-desc">Summer Camp Finale</div>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="gallery-item reveal tutorials" data-category="tutorials" data-title="Power Moves Tutorial" data-desc="Advanced Techniques" onclick="openLightbox(8)">
+          <div class="gallery-emoji">💪</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Tutorials</div>
+            <div class="gallery-title">Power Moves Tutorial</div>
+            <div class="gallery-desc">Advanced Techniques</div>
+          </div>
+        </div>
+
+        <!-- Item 10: Regular -->
+        <div class="gallery-item reveal behind" data-category="behind" data-title="Preparation Ritual" data-desc="Pre-Performance Setup" onclick="openLightbox(9)">
+          <div class="gallery-emoji">✨</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Behind the Scenes</div>
+            <div class="gallery-title">Preparation Ritual</div>
+            <div class="gallery-desc">Pre-Performance Setup</div>
+          </div>
+        </div>
+
+        <!-- Item 11: Regular -->
+        <div class="gallery-item reveal battles" data-category="battles" data-title="Hip Hop International" data-desc="Tokyo Qualifier Victory" onclick="openLightbox(10)">
+          <div class="gallery-emoji">🥇</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Battles</div>
+            <div class="gallery-title">Hip Hop International</div>
+            <div class="gallery-desc">Tokyo Qualifier Victory</div>
+          </div>
+        </div>
+
+        <!-- Item 12: Regular -->
+        <div class="gallery-item reveal performances video" data-category="performances" data-title="Live Stream Concert" data-desc="Virtual World Tour" onclick="openLightbox(11)">
+          <div class="gallery-emoji">🎪</div>
+          <div class="play-btn">▶</div>
+          <div class="gallery-overlay">
+            <div class="gallery-category">Performances</div>
+            <div class="gallery-title">Live Stream Concert</div>
+            <div class="gallery-desc">Virtual World Tour</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STATS -->
+  <section class="gallery-stats">
+    <div class="container">
+      <div class="stats-content">
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Gallery Items</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">28</div>
+          <div class="stat-label">Years of Breaking</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">80+</div>
+          <div class="stat-label">Battle Victories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100K+</div>
+          <div class="stat-label">Students Taught</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner">
+      <h2>Book Beast Boogie Today</h2>
+      <p>School assemblies, birthday parties, corporate events, workshops, and performances. Bring the energy to your next event.</p>
+      <a href="book.html" class="btn-white">Get in Touch &rarr;</a>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()">&larr;</button>
+    <div class="lightbox-content">
+      <div class="lightbox-emoji" id="lightboxEmoji">🎬</div>
+      <div class="lightbox-info">
+        <div class="lightbox-category" id="lightboxCategory">Category</div>
+        <div class="lightbox-title" id="lightboxTitle">Title</div>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="nextLightbox()">&rarr;</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="beastboogie-exp.html" class="nav-logo">
+            <div class="nav-logo-mark">BB</div>
+            <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+          </a>
+          <p class="footer-about">Anthony "Beast Boogie" Silva is a Houston-based B-Boy, educator, and performer with 28 years of experience. From school assemblies to global stages, he's dedicated his life to sharing the art of breaking.</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@beastboogie" target="_blank" aria-label="TikTok">T</a>
+            <a href="https://www.instagram.com/beastboogie/" target="_blank" aria-label="Instagram">I</a>
+            <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" aria-label="Facebook">F</a>
+            <a href="https://www.youtube.com/@BeastBoogie" target="_blank" aria-label="YouTube">Y</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Anthony</a></li>
+            <li><a href="gallery-exp.html">Gallery</a></li>
+            <li><a href="about.html">Achievements</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="schools.html">School Assemblies</a></li>
+            <li><a href="programs.html">Public Camps</a></li>
+            <li><a href="programs.html">Birthday Parties</a></li>
+            <li><a href="programs.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="learn-online.html">B-Boy Dojo</a></li>
+            <li><a href="learn-online.html">Online Courses</a></li>
+            <li><a href="learn-online.html">Tutorials</a></li>
+            <li><a href="shop.html">Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="mailto:info@beastboogie.com">Email Us</a></li>
+            <li><a href="#">Houston, TX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Beast Boogie Entertainment. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gallery items data
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentLightboxIndex = 0;
+
+    // Mobile menu
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize if viewport > 1024px
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        closeMenu();
+      }
+    });
+
+    // Initialize on load
+    window.addEventListener('load', setActiveNav);
+    setActiveNav();
+
+    // Filter gallery
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+
+        // Update active button
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // Filter items
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = '';
+            item.style.animation = 'none';
+            setTimeout(() => {
+              item.style.animation = 'fadeIn 0.4s ease';
+            }, 10);
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox functions
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const item = galleryItems[currentLightboxIndex];
+      if (!item || item.style.display === 'none') {
+        // Find next visible item
+        let nextIndex = (currentLightboxIndex + 1) % galleryItems.length;
+        while (galleryItems[nextIndex].style.display === 'none' && nextIndex !== currentLightboxIndex) {
+          nextIndex = (nextIndex + 1) % galleryItems.length;
+        }
+        currentLightboxIndex = nextIndex;
+      }
+
+      const item2 = galleryItems[currentLightboxIndex];
+      document.getElementById('lightboxEmoji').textContent = item2.querySelector('.gallery-emoji').textContent;
+      document.getElementById('lightboxCategory').textContent = item2.dataset.category.charAt(0).toUpperCase() + item2.dataset.category.slice(1);
+      document.getElementById('lightboxTitle').textContent = item2.dataset.title;
+    }
+
+    function nextLightbox() {
+      let nextIndex = (currentLightboxIndex + 1) % galleryItems.length;
+      while (galleryItems[nextIndex].style.display === 'none' && nextIndex !== currentLightboxIndex) {
+        nextIndex = (nextIndex + 1) % galleryItems.length;
+      }
+      currentLightboxIndex = nextIndex;
+      updateLightbox();
+    }
+
+    function prevLightbox() {
+      let prevIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
+      while (galleryItems[prevIndex].style.display === 'none' && prevIndex !== currentLightboxIndex) {
+        prevIndex = (prevIndex - 1 + galleryItems.length) % galleryItems.length;
+      }
+      currentLightboxIndex = prevIndex;
+      updateLightbox();
+    }
+
+    // Lightbox keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox.classList.contains('open')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+    });
+
+    // Close lightbox on click outside
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        closeLightbox();
+      }
+    });
+
+    // Add fadeIn animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Set active nav link on page load
+    function setActiveNav() {
+      const currentPage = window.location.pathname.split('/').pop() || 'beastboogie-exp.html';
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'beastboogie-exp.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize if viewport > 1024px + force sidebar hide on mobile
+    function handleResponsive() {
+      const sidebar = document.getElementById('sidebar');
+      const wrapper = document.getElementById('pageWrapper');
+      const topBar = document.getElementById('mobileTopBar');
+      if (window.innerWidth <= 1024) {
+        if (sidebar) sidebar.style.display = 'none';
+        if (wrapper) wrapper.style.marginLeft = '0';
+        if (topBar) topBar.style.display = 'flex';
+        closeMenu();
+      } else {
+        if (sidebar) sidebar.style.display = '';
+        if (wrapper) wrapper.style.marginLeft = '';
+        if (topBar) topBar.style.display = '';
+      }
+    }
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+      setActiveNav();
+      handleResponsive();
+    });
+    setActiveNav();
+
+    // ============================
+    // SCROLL REVEAL - INTERSECTION OBSERVER
+    // ============================
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all reveal elements
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Beast Boogie Shop | Merch & Apparel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep:    #001487;
+      --blue-link:    #001489;
+      --blue-hover:   #1e73be;
+      --blue-light:   #4d8fff;
+      --dark-bg:      #111a1a;
+      --dark-card:    #1a2222;
+      --dark-border:  rgba(255,255,255,0.08);
+      --white:        #ffffff;
+      --off-white:    #f9f9f9;
+      --cream:        #cecece;
+      --gray:         #777777;
+      --black:        #000000;
+      --orange:       #FF5500;
+      --font-serif:   'Bodoni Moda', Georgia, serif;
+      --font-sans:    'Open Sans', -apple-system, sans-serif;
+      --font-display: 'Bebas Neue', impact, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark-bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--blue-deep); color: var(--white); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================
+       SIDEBAR NAVIGATION (Desktop)
+    ============================ */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 250px;
+      background: rgb(0, 0, 0);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 30px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-deep);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .nav-logo-text span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      position: relative;
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-hover);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-hover);
+      border-left-color: var(--blue-hover);
+      background: rgba(30, 115, 190, 0.08);
+    }
+
+    .nav-cta {
+      background: var(--blue-deep) !important;
+      color: var(--white) !important;
+      padding: 12px 28px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.3s ease !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      width: auto !important;
+      border-left: none !important;
+      margin: 20px 0 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover) !important;
+      transform: translateY(-2px);
+    }
+
+    .sidebar-social {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0 30px;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+
+    /* Mobile toggle (hidden by default) */
+    .mobile-top-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      z-index: 998;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mobile-top-bar.show { display: flex; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 997;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding-top: 40px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--blue-hover);
+    }
+
+    .mobile-menu .mob-cta {
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px !important;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 20px 0;
+      width: auto;
+    }
+
+    .mobile-menu .mob-cta:hover {
+      background: var(--blue-hover);
+    }
+
+    /* Page wrapper with left margin */
+    .page-wrapper {
+      margin-left: 250px;
+    }
+
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--cream);
+      transition: color 0.3s ease;
+    }
+    .mobile-menu a:hover { color: var(--blue-light); }
+    .mobile-menu .mob-cta {
+      margin-top: 12px;
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ============================
+       PAGE HERO
+    ============================ */
+    .page-hero {
+      position: relative;
+      width: 100%;
+      padding: 200px 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue-deep);
+      margin-top: 0;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(77,143,255,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+    .page-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s ease 0.15s both;
+    }
+    .page-hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      animation: fadeInUp 0.8s ease 0.45s both;
+    }
+    .breadcrumb span { color: var(--blue-light); }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================
+       PRODUCTS GRID
+    ============================ */
+    .products-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,20,135,0.1);
+      border-color: var(--blue-deep);
+    }
+    .product-image {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 64px;
+      overflow: hidden;
+    }
+    .product-image.black { background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); }
+    .product-image.orange { background: linear-gradient(135deg, #FF5500 0%, #FFB366 100%); }
+    .product-image.purple { background: linear-gradient(135deg, #5a2d82 0%, #9d50dd 100%); }
+    .product-image.green { background: linear-gradient(135deg, #1a5a3a 0%, #4CAF50 100%); }
+    .product-image.cyan { background: linear-gradient(135deg, #0088cc 0%, #66ccff 100%); }
+    .product-image.teal { background: linear-gradient(135deg, #006b5c 0%, #26a69a 100%); }
+
+    .product-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .product-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+    .product-button {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--blue-deep);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .product-button:hover {
+      background: var(--blue-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       FEATURED SECTION
+    ============================ */
+    .featured-section {
+      padding: 100px 0;
+      background: var(--dark-bg);
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .featured-image {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .featured-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .featured-image:hover img { transform: scale(1.04); }
+    .featured-content h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .featured-content p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .featured-content .product-price {
+      color: var(--blue-light);
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+    .featured-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .featured-button:hover {
+      background: var(--blue-light);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,20,135,0.4);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: var(--black);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-col a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-legal a:hover { color: var(--blue-light); }
+
+    /* ============================
+       CTA BANNER
+    ============================ */
+    .cta-banner {
+      padding: 100px 0;
+      background: var(--blue-deep);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(77,143,255,0.15) 0%, transparent 60%);
+    }
+    .cta-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ============================
+       SCROLL REVEAL ANIMATIONS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      .sidebar { display: none !important; visibility: hidden !important; width: 0 !important; overflow: hidden !important; }
+      .page-wrapper { margin-left: 0 !important; }
+      .mobile-top-bar { display: flex !important; }
+      .nav-toggle { display: flex; }
+      .page-hero { margin-top: 60px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-image img { height: 320px; }
+      .page-hero { padding: 80px 0 60px; min-height: 300px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .products-section, .featured-section { padding: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero { min-height: 200px; padding: 60px 0 40px; }
+      .page-hero-title { font-size: clamp(28px, 8vw, 40px); }
+      .product-image { height: 200px; }
+      .products-grid { gap: 16px; }
+      .featured-button { padding: 12px 28px; font-size: 12px; }
+      .cta-banner { padding: 60px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (Desktop only) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo-area">
+      <a href="beastboogie-exp.html" class="nav-logo">
+        <div class="nav-logo-mark">BB</div>
+        <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="schools.html">Schools</a>
+      <a href="programs.html">Programs</a>
+      <a href="learn-online.html">Learn Online</a>
+      <a href="gallery-exp.html">Gallery</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="book.html" class="nav-cta">Book Now</a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.tiktok.com/@beastboogie" target="_blank" title="TikTok">T</a>
+      <a href="https://www.instagram.com/beastboogie/" target="_blank" title="Instagram">I</a>
+      <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" title="Facebook">F</a>
+      <a href="https://www.youtube.com/@BeastBoogie" target="_blank" title="YouTube">Y</a>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-top-bar" id="mobileTopBar">
+    <a href="beastboogie-exp.html" class="nav-logo" style="gap: 8px; flex-direction: row; margin: 0;">
+      <div class="nav-logo-mark" style="width: 36px; height: 36px; font-size: 16px;">BB</div>
+      <div class="nav-logo-text" style="font-size: 11px;">BEAST <span>BOOGIE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="schools.html" onclick="closeMenu()">Schools</a>
+    <a href="programs.html" onclick="closeMenu()">Programs</a>
+    <a href="learn-online.html" onclick="closeMenu()">Learn Online</a>
+    <a href="gallery-exp.html" onclick="closeMenu()">Gallery</a>
+    <a href="shop.html" onclick="closeMenu()" class="active">Shop</a>
+    <a href="book.html" onclick="closeMenu()" class="mob-cta">Book Now</a>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper" id="pageWrapper">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">Beast Boogie Shop</h1>
+      <p class="page-hero-subtitle">Rep the culture.</p>
+      <div class="breadcrumb">
+        <a href="beastboogie-exp.html">Home</a> <span>/</span> <span>Shop</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-image black">👕</div>
+          <div class="product-body">
+            <h3 class="product-name">Beast Boogie Tee (Black)</h3>
+            <p class="product-price">$34.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-image orange">👕</div>
+          <div class="product-body">
+            <h3 class="product-name">Beast Boogie Tee (Orange)</h3>
+            <p class="product-price">$34.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-image purple">🧥</div>
+          <div class="product-body">
+            <h3 class="product-name">B-Boy Dojo Hoodie</h3>
+            <p class="product-price">$64.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-image green">🧢</div>
+          <div class="product-body">
+            <h3 class="product-name">Breakin' Cap</h3>
+            <p class="product-price">$29.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-image cyan">📦</div>
+          <div class="product-body">
+            <h3 class="product-name">Beast Boogie Stickers Pack</h3>
+            <p class="product-price">$9.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-image teal">🪡</div>
+          <div class="product-body">
+            <h3 class="product-name">Dance Mat</h3>
+            <p class="product-price">$79.99</p>
+            <button class="product-button">Shop Now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SECTION -->
+  <section class="featured-section reveal">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-image">
+          <img src="https://images.unsplash.com/photo-1556821552-5ff63b1ba9f8?w=600&q=80" alt="B-Boy Dojo Hoodie">
+        </div>
+        <div class="featured-content">
+          <h3>B-Boy Dojo Hoodie</h3>
+          <p>The signature hoodie of the Beast Boogie B-Boy Dojo. Premium heavyweight cotton blend with embroidered logo and custom design. Wear it to class, to the streets, or to the battle.</p>
+          <p class="product-price">$64.99</p>
+          <button class="featured-button">Add to Cart →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner">
+      <h2>Visit Full Store</h2>
+      <p>Explore our complete collection of Beast Boogie apparel, accessories, and limited edition drops.</p>
+      <button class="btn-white">Shop More →</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="beastboogie-exp.html" class="nav-logo">
+            <div class="nav-logo-mark">BB</div>
+            <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+          </a>
+          <p class="footer-about">Anthony "Beast Boogie" Silva is a Houston-based B-Boy, educator, and performer with 28 years of experience. From school assemblies to global stages, he's dedicated his life to sharing the art of breaking.</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@beastboogie" target="_blank" aria-label="TikTok">T</a>
+            <a href="https://www.instagram.com/beastboogie/" target="_blank" aria-label="Instagram">I</a>
+            <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" aria-label="Facebook">F</a>
+            <a href="https://www.youtube.com/@BeastBoogie" target="_blank" aria-label="YouTube">Y</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Anthony</a></li>
+            <li><a href="gallery-exp.html">Gallery</a></li>
+            <li><a href="about.html">Achievements</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="schools.html">School Assemblies</a></li>
+            <li><a href="programs.html">Public Camps</a></li>
+            <li><a href="programs.html">Birthday Parties</a></li>
+            <li><a href="programs.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="learn-online.html">B-Boy Dojo</a></li>
+            <li><a href="learn-online.html">Online Courses</a></li>
+            <li><a href="learn-online.html">Tutorials</a></li>
+            <li><a href="shop.html">Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="mailto:info@beastboogie.com">Email Us</a></li>
+            <li><a href="#">Houston, TX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Beast Boogie Entertainment. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div><!-- close page-wrapper -->
+
+  <script>
+    // Set active nav link on page load
+    function setActiveNav() {
+      const currentPage = window.location.pathname.split('/').pop() || 'beastboogie-exp.html';
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'beastboogie-exp.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize + force sidebar hide on mobile (fallback for browsers that ignore media queries)
+    function handleResponsive() {
+      var sidebar = document.getElementById('sidebar');
+      var wrapper = document.getElementById('pageWrapper');
+      var topBar = document.getElementById('mobileTopBar');
+      if (window.innerWidth <= 1024) {
+        if (sidebar) sidebar.style.display = 'none';
+        if (wrapper) wrapper.style.marginLeft = '0';
+        if (topBar) topBar.style.display = 'flex';
+      } else {
+        if (sidebar) sidebar.style.display = '';
+        if (wrapper) wrapper.style.marginLeft = '';
+        if (topBar) topBar.style.display = '';
+      }
+    }
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // Initialize on load
+    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); });
+    setActiveNav();
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

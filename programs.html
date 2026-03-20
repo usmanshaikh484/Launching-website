@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Programs & Events | Beast Boogie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep:    #001487;
+      --blue-link:    #001489;
+      --blue-hover:   #1e73be;
+      --blue-light:   #4d8fff;
+      --dark-bg:      #111a1a;
+      --dark-card:    #1a2222;
+      --dark-border:  rgba(255,255,255,0.08);
+      --white:        #ffffff;
+      --off-white:    #f9f9f9;
+      --cream:        #cecece;
+      --gray:         #777777;
+      --black:        #000000;
+      --orange:       #FF5500;
+      --font-serif:   'Bodoni Moda', Georgia, serif;
+      --font-sans:    'Open Sans', -apple-system, sans-serif;
+      --font-display: 'Bebas Neue', impact, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark-bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--blue-deep); color: var(--white); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================
+       SIDEBAR NAVIGATION (Desktop)
+    ============================ */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 250px;
+      background: rgb(0, 0, 0);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 30px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-deep);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .nav-logo-text span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      position: relative;
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-hover);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-hover);
+      border-left-color: var(--blue-hover);
+      background: rgba(30, 115, 190, 0.08);
+    }
+
+    .nav-cta {
+      background: var(--blue-deep) !important;
+      color: var(--white) !important;
+      padding: 12px 28px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.3s ease !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      width: auto !important;
+      border-left: none !important;
+      margin: 20px 0 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover) !important;
+      transform: translateY(-2px);
+    }
+
+    .sidebar-social {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0 30px;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+
+    /* Mobile toggle (hidden by default) */
+    .mobile-top-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      z-index: 998;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mobile-top-bar.show { display: flex; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 997;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding-top: 40px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--blue-hover);
+    }
+
+    .mobile-menu .mob-cta {
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px !important;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 20px 0;
+      width: auto;
+    }
+
+    .mobile-menu .mob-cta:hover {
+      background: var(--blue-hover);
+    }
+
+    /* Page wrapper with left margin */
+    .page-wrapper {
+      margin-left: 250px;
+    }
+
+    /* ============================
+       PAGE HERO (PROGRAMS)
+    ============================ */
+    .page-hero {
+      position: relative;
+      width: 100%;
+      padding: 200px 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue-deep);
+      margin-top: 0;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(77,143,255,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+    .page-hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease both;
+    }
+    .page-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s ease 0.15s both;
+    }
+    .page-hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      animation: fadeInUp 0.8s ease 0.45s both;
+    }
+    .breadcrumb span { color: var(--blue-light); }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================
+       PROGRAMS GRID
+    ============================ */
+    .programs-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .program-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 8px;
+      padding: 40px 28px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,20,135,0.12);
+      border-color: var(--blue-deep);
+    }
+    .program-card:hover::before { transform: scaleX(1); }
+    .program-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .program-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+    .program-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .program-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-link);
+      transition: color 0.3s ease;
+    }
+    .program-link:hover { color: var(--blue-hover); }
+
+    /* ============================
+       FEATURED PROGRAM (Birthday)
+    ============================ */
+    .featured-section {
+      padding: 100px 0;
+      background: var(--dark-bg);
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: stretch; /* both columns fill full row height */
+      min-height: 650px; /* drives row height — images fill this, text centers within it */
+    }
+    .featured-images {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-self: stretch; /* images stretch to full row height */
+    }
+    .featured-images img {
+      flex: 1;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      min-height: 0; /* required for flex children to shrink below content size */
+    }
+    .featured-content {
+      align-self: center; /* text vertically centers within the taller row */
+    }
+    .featured-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .featured-content p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .featured-highlight {
+      background: rgba(77,143,255,0.1);
+      border-left: 3px solid var(--blue-light);
+      padding: 18px 20px;
+      margin: 14px 0;
+      border-radius: 4px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--cream);
+    }
+    .featured-highlight strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border: 2px solid var(--blue-light);
+      color: var(--blue-light);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+      margin-top: 16px;
+    }
+    .btn-outline:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+        /* ============================
+       AGE GROUPS
+    ============================ */
+    .age-groups {
+      padding: 100px 0;
+      background: var(--blue-deep);
+    }
+    .age-groups-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .age-groups-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .age-groups-subtitle {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .age-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .age-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 48px 32px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.4s ease;
+    }
+    .age-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,20,135,0.1);
+      border-color: var(--blue-deep);
+    }
+    .age-badge {
+      display: inline-block;
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .age-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .age-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .age-points {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+      text-align: left;
+      margin: 20px 0;
+    }
+    .age-points li {
+      list-style: none;
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .age-points li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--blue-deep);
+      font-weight: 700;
+    }
+
+    /* ============================
+       FAQ ACCORDION
+    ============================ */
+    .faq-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .faq-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .faq-header p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 24px 0;
+      transition: all 0.3s ease;
+    }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+      user-select: none;
+      padding: 8px 0;
+    }
+    .faq-question-text {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--black);
+      text-align: left;
+      flex: 1;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover .faq-question-text { color: var(--blue-deep); }
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--off-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--blue-deep);
+      transition: all 0.3s ease;
+      font-weight: 700;
+    }
+    .faq-item.active .faq-toggle {
+      background: var(--blue-deep);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+      margin-top: 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .faq-answer-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* ============================
+       CTA SECTION
+    ============================ */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--blue-deep);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(77,143,255,0.15) 0%, transparent 60%);
+    }
+    .cta-section-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ============================
+       SCROLL REVEAL ANIMATIONS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
+       FEATURED IMAGES LAYOUT
+    ============================ */
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: var(--black);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-col a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-legal a:hover { color: var(--blue-light); }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      .sidebar { display: none !important; visibility: hidden !important; width: 0 !important; overflow: hidden !important; }
+      .page-wrapper { margin-left: 0 !important; }
+      .mobile-top-bar { display: flex !important; }
+      .nav-toggle { display: flex; }
+      .page-hero { margin-top: 60px; }
+      .featured-grid { grid-template-columns: 1fr; gap: 40px; min-height: unset; }
+      .featured-images { flex-direction: row; gap: 8px; }
+      .featured-images img { flex: 1; height: 280px; min-height: unset; }
+      .programs-grid { grid-template-columns: repeat(2, 1fr); }
+      .age-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 150px 0 80px; }
+      .page-hero-title { font-size: clamp(32px, 10vw, 48px); }
+      .programs-section { padding: 60px 0; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .featured-section { padding: 60px 0; }
+      .age-groups { padding: 60px 0; }
+      .age-grid { grid-template-columns: 1fr; }
+      .faq-section { padding: 60px 0; }
+      .cta-section { padding: 60px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero { padding: 120px 0 60px; }
+      .page-hero-title { font-size: clamp(28px, 8vw, 40px); }
+      .program-card { padding: 28px 20px; }
+      .age-card { padding: 32px 20px; }
+      .featured-images { flex-direction: column; }
+      .featured-images img { flex: none; height: 220px; }
+      .faq-item { padding: 20px 0; }
+      .faq-question-text { font-size: 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (Desktop only) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo-area">
+      <a href="beastboogie-exp.html" class="nav-logo">
+        <div class="nav-logo-mark">BB</div>
+        <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="schools.html">Schools</a>
+      <a href="programs.html" class="active">Programs</a>
+      <a href="learn-online.html">Learn Online</a>
+      <a href="gallery-exp.html">Gallery</a>
+      <a href="shop.html">Shop</a>
+      <a href="book.html" class="nav-cta">Book Now</a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.tiktok.com/@beastboogie" target="_blank" title="TikTok">T</a>
+      <a href="https://www.instagram.com/beastboogie/" target="_blank" title="Instagram">I</a>
+      <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" title="Facebook">F</a>
+      <a href="https://www.youtube.com/@BeastBoogie" target="_blank" title="YouTube">Y</a>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-top-bar" id="mobileTopBar">
+    <a href="beastboogie-exp.html" class="nav-logo" style="gap: 8px; flex-direction: row; margin: 0;">
+      <div class="nav-logo-mark" style="width: 36px; height: 36px; font-size: 16px;">BB</div>
+      <div class="nav-logo-text" style="font-size: 11px;">BEAST <span>BOOGIE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="programs.html" onclick="closeMenu()" class="active">Programs</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="schools.html" onclick="closeMenu()">Schools</a>
+    <a href="learn-online.html" onclick="closeMenu()">Learn Online</a>
+    <a href="gallery-exp.html" onclick="closeMenu()">Gallery</a>
+    <a href="shop.html" onclick="closeMenu()">Shop</a>
+    <a href="book.html" onclick="closeMenu()" class="mob-cta">Book Now</a>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper" id="pageWrapper">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Explore What We Offer</div>
+      <h1 class="page-hero-title">Programs &amp; Events</h1>
+      <p class="page-hero-subtitle">From birthday parties to corporate events</p>
+      <div class="breadcrumb">Home / <span>Programs</span></div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS GRID -->
+  <section class="programs-section reveal">
+    <div class="container">
+      <div class="programs-grid">
+        <div class="program-card">
+          <span class="program-icon">🎂</span>
+          <h3 class="program-title">Birthday Parties</h3>
+          <p class="program-desc">High-energy, unforgettable celebrations. Beast Boogie brings the party with performance, teaching, and dancing with the birthday crew.</p>
+          <a href="book.html" class="program-link">Learn More &rarr;</a>
+        </div>
+        <div class="program-card">
+          <span class="program-icon">⛺</span>
+          <h3 class="program-title">Public Camps</h3>
+          <p class="program-desc">Summer and seasonal camps for all ages and skill levels. Learn breaking fundamentals in a supportive, community-driven environment.</p>
+          <a href="book.html" class="program-link">Learn More &rarr;</a>
+        </div>
+        <div class="program-card">
+          <span class="program-icon">📚</span>
+          <h3 class="program-title">Workshops</h3>
+          <p class="program-desc">Specialized sessions focused on specific techniques. From top rock to power moves, deepen your breaking knowledge with Beast Boogie.</p>
+          <a href="book.html" class="program-link">Learn More &rarr;</a>
+        </div>
+        <div class="program-card">
+          <span class="program-icon">🏢</span>
+          <h3 class="program-title">Corporate Events</h3>
+          <p class="program-desc">Team building and entertainment for companies. Beast Boogie delivers inspiring performances and interactive experiences for your event.</p>
+          <a href="book.html" class="program-link">Learn More &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROGRAM -->
+  <section class="featured-section reveal">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-images">
+          <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=600&q=80" alt="Beast Boogie performing">
+          <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&q=80" alt="Breakdance class">
+        </div>
+        <div class="featured-content">
+          <h2>Birthday Parties: Your Flagship Experience</h2>
+          <p>Make your celebration legendary. Beast Boogie transforms birthday parties into unforgettable events that get kids (and adults) moving.</p>
+          <p>Every party includes:</p>
+          <div class="featured-highlight">
+            <strong>Dynamic Performance</strong> Watch Beast Boogie demonstrate advanced breaking, power moves, and freestyle skills that leave everyone amazed.
+          </div>
+          <div class="featured-highlight">
+            <strong>Interactive Teaching</strong> Learn top rock, freezes, and basic breaking moves in a fun, encouraging environment — no experience necessary.
+          </div>
+          <div class="featured-highlight">
+            <strong>Dance Party</strong> Everyone gets on the floor for a group dance session. Beast Boogie brings the energy, the music, and the pure fun.
+          </div>
+          <p>Perfect for kids 4 and up, teens, and family celebrations. Flexible packages available for groups of 10 to 100+ guests.</p>
+          <a href="book.html" class="btn-outline">Book Your Party &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGE GROUPS -->
+  <section class="age-groups reveal">
+    <div class="container">
+      <div class="age-groups-header">
+        <h2>Programs by Age Group</h2>
+        <p class="age-groups-subtitle">Beast Boogie has something for everyone — tailored to skill level, interests, and age.</p>
+      </div>
+      <div class="age-grid">
+        <div class="age-card">
+          <span class="age-badge">Ages 4-8</span>
+          <h3 class="age-title">Kids</h3>
+          <p class="age-desc">Introduction to breaking through play and movement.</p>
+          <ul class="age-points">
+            <li>Foundational moves and rhythm</li>
+            <li>Confidence building</li>
+            <li>Fun, energetic atmosphere</li>
+            <li>Perfect for parties &amp; camps</li>
+          </ul>
+        </div>
+        <div class="age-card">
+          <span class="age-badge">Ages 9-14</span>
+          <h3 class="age-title">Youth</h3>
+          <p class="age-desc">Develop skills and express yourself through breaking.</p>
+          <ul class="age-points">
+            <li>Footwork &amp; top rock techniques</li>
+            <li>Choreography basics</li>
+            <li>Creative expression</li>
+            <li>Camps &amp; workshops available</li>
+          </ul>
+        </div>
+        <div class="age-card">
+          <span class="age-badge">Ages 15+</span>
+          <h3 class="age-title">Teens &amp; Adults</h3>
+          <p class="age-desc">Advanced training and competitive edge.</p>
+          <ul class="age-points">
+            <li>Power moves &amp; freezes</li>
+            <li>Battle techniques</li>
+            <li>Advanced choreography</li>
+            <li>Workshops &amp; online courses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section reveal">
+    <div class="container">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about Beast Boogie's programs and events.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">What's included in a birthday party booking?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Each birthday party includes a dynamic performance showcasing advanced breaking moves, interactive teaching sessions where guests learn basic moves, and a full dance party. The typical package runs 60–90 minutes depending on your group size. Beast Boogie brings the energy, music setup, and enthusiasm to make your party unforgettable.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Do I need breaking experience to participate?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">No experience necessary! Beast Boogie's programs are designed for all levels — from complete beginners to advanced breakers. Every session includes beginner-friendly moves, and participants progress at their own pace. Whether it's your first time or you've been breaking for years, there's something for you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">What's the difference between camps and workshops?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Camps are multi-day or multi-week programs (typically 1–4 weeks) covering foundational breaking, building community, and sustained skill development. Workshops are shorter, focused sessions (2–6 hours) targeting specific techniques like footwork, freezes, or power moves. Choose a camp for comprehensive training or a workshop to drill down on a specific skill.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How do I book a program or event?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Visit the Book Now page, fill out our event request form with your details (date, group size, program type), and we'll get back to you within 24 hours with availability and pricing. For custom events or large groups (50+ people), email us directly at info@beastboogie.com for a personalized quote.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Can you accommodate large corporate events?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Absolutely. Beast Boogie has entertained corporate audiences of 100+ at team-building events, conferences, and company celebrations. We customize performances and interactive experiences to fit your vibe and goals. Contact us to discuss your event requirements.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">What's the best age for breaking lessons?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Kids as young as 4 can start learning breaking basics. That said, 6–8 is an ideal age when kids have better body awareness and coordination. Teens and adults can start anytime — it's never too late. Beast Boogie has taught students from age 4 to 60+, and everyone discovers something new.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Do you offer virtual or online programs?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p class="faq-answer-text">Yes! The B-Boy Dojo is Beast Boogie's online academy with comprehensive video courses covering footwork, top rock, freezes, and choreography. Perfect for learning at your own pace. Check out the Learn Online section to explore courses and sign up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section reveal">
+    <div class="container cta-section-inner">
+      <h2>Ready to Book?</h2>
+      <p>Whether it's a birthday party, corporate event, camp, or workshop — let's create an unforgettable experience. Get in touch today.</p>
+      <a href="book.html" class="btn-white">Book a Program &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="beastboogie-exp.html" class="nav-logo">
+            <div class="nav-logo-mark">BB</div>
+            <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+          </a>
+          <p class="footer-about">Anthony "Beast Boogie" Silva is a Houston-based B-Boy, educator, and performer with 28 years of experience. From school assemblies to global stages, he's dedicated his life to sharing the art of breaking.</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@beastboogie" target="_blank" aria-label="TikTok">T</a>
+            <a href="https://www.instagram.com/beastboogie/" target="_blank" aria-label="Instagram">I</a>
+            <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" aria-label="Facebook">F</a>
+            <a href="https://www.youtube.com/@BeastBoogie" target="_blank" aria-label="YouTube">Y</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Anthony</a></li>
+            <li><a href="gallery-exp.html">Gallery</a></li>
+            <li><a href="about.html">Achievements</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="schools.html">School Assemblies</a></li>
+            <li><a href="programs.html">Public Camps</a></li>
+            <li><a href="programs.html">Birthday Parties</a></li>
+            <li><a href="programs.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="learn-online.html">B-Boy Dojo</a></li>
+            <li><a href="learn-online.html">Online Courses</a></li>
+            <li><a href="learn-online.html">Tutorials</a></li>
+            <li><a href="shop.html">Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="mailto:info@beastboogie.com">Email Us</a></li>
+            <li><a href="#">Houston, TX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Beast Boogie Entertainment. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div><!-- close page-wrapper -->
+
+  <script>
+    // Set active nav link on page load
+    function setActiveNav() {
+      const currentPage = window.location.pathname.split('/').pop() || 'beastboogie-exp.html';
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'beastboogie-exp.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize + force sidebar hide on mobile (fallback for browsers that ignore media queries)
+    function handleResponsive() {
+      var sidebar = document.getElementById('sidebar');
+      var wrapper = document.getElementById('pageWrapper');
+      var topBar = document.getElementById('mobileTopBar');
+      if (window.innerWidth <= 1024) {
+        if (sidebar) sidebar.style.display = 'none';
+        if (wrapper) wrapper.style.marginLeft = '0';
+        if (topBar) topBar.style.display = 'flex';
+      } else {
+        if (sidebar) sidebar.style.display = '';
+        if (wrapper) wrapper.style.marginLeft = '';
+        if (topBar) topBar.style.display = '';
+      }
+    }
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // FAQ Accordion
+    function toggleFaq(element) {
+      const faqItem = element.closest('.faq-item');
+      const isActive = faqItem.classList.toggle('active');
+
+      // Close other open items (optional: remove this for multi-select accordion)
+      document.querySelectorAll('.faq-item.active').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Scroll Reveal Animation using IntersectionObserver
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      reveals.forEach(reveal => observer.observe(reveal));
+    }
+
+    // Initialize on load
+    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); });
+    setActiveNav();
+  </script>
+</body>
+</html>

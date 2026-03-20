@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Beast Boogie | B-Boy. Educator. Legend.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep:    #001487;
+      --blue-link:    #001489;
+      --blue-hover:   #1e73be;
+      --blue-light:   #4d8fff;
+      --dark-bg:      #111a1a;
+      --dark-card:    #1a2222;
+      --dark-border:  rgba(255,255,255,0.08);
+      --white:        #ffffff;
+      --off-white:    #f9f9f9;
+      --cream:        #cecece;
+      --gray:         #777777;
+      --black:        #000000;
+      --orange:       #FF5500;
+      --font-serif:   'Bodoni Moda', Georgia, serif;
+      --font-sans:    'Open Sans', -apple-system, sans-serif;
+      --font-display: 'Bebas Neue', impact, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark-bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--blue-deep); color: var(--white); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================
+       SCROLL REVEAL ANIMATIONS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    /* ============================
+       SIDEBAR NAVIGATION (Desktop)
+    ============================ */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 250px;
+      background: rgb(0, 0, 0);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 30px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-deep);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .nav-logo-text span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      position: relative;
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-hover);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-hover);
+      border-left-color: var(--blue-hover);
+      background: rgba(30, 115, 190, 0.08);
+    }
+
+    .nav-cta {
+      background: var(--blue-deep) !important;
+      color: var(--white) !important;
+      padding: 12px 28px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.3s ease !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      width: auto !important;
+      border-left: none !important;
+      margin: 20px 0 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover) !important;
+      transform: translateY(-2px);
+    }
+
+    .sidebar-social {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0 30px;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+
+    /* Mobile toggle (hidden by default) */
+    .mobile-top-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      z-index: 998;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mobile-top-bar.show { display: flex; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 997;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding-top: 40px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--blue-hover);
+    }
+
+    .mobile-menu .mob-cta {
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px !important;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 20px 0;
+      width: auto;
+    }
+
+    .mobile-menu .mob-cta:hover {
+      background: var(--blue-hover);
+    }
+
+    /* Page wrapper with left margin */
+    .page-wrapper {
+      margin-left: 250px;
+    }
+
+    /* ============================
+       HERO SECTION
+    ============================ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue-deep);
+      margin-top: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        margin-top: 60px;
+      }
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1547153760-18fc86324498?w=1920&q=80') center center / cover no-repeat;
+      opacity: 0.3;
+      transform: scale(1);
+      animation: hero-slow-zoom 25s ease-in-out infinite alternate;
+    }
+    @keyframes hero-slow-zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,20,135,0.6) 0%, rgba(0,20,135,0.85) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      will-change: transform, opacity;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease both;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(56px, 10vw, 130px);
+      font-weight: 500;
+      line-height: 0.95;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease 0.15s both;
+    }
+    .hero-title span { color: var(--blue-light); }
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+      animation: fadeInUp 0.8s ease 0.45s both;
+    }
+    .hero-cta:hover {
+      background: var(--blue-light);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,20,135,0.4);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeIn 1s ease 1s both;
+    }
+    .hero-scroll span {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; } 100% { opacity: 1; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ============================
+       QUOTE SECTION
+    ============================ */
+    .quote-section {
+      padding: 100px 0;
+      background: var(--white);
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 72px;
+      color: var(--blue-deep);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--black);
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+    .quote-attr {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* ============================
+       QUICK LINKS (3 columns)
+    ============================ */
+    .quick-links {
+      padding: 80px 0;
+      background: var(--blue-deep);
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .quick-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 8px;
+      padding: 48px 32px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .quick-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,20,135,0.1);
+      border-color: var(--blue-deep);
+    }
+    .quick-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .quick-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .quick-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .quick-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-link);
+      transition: color 0.3s ease;
+    }
+    .quick-link:hover { color: var(--blue-hover); }
+
+    /* ============================
+       DISCOVER SECTION
+    ============================ */
+    .discover {
+      padding: 120px 0;
+      background: var(--dark-bg);
+    }
+    .discover-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: stretch;
+    }
+    .discover-img {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .discover-img img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .discover-img:hover img { transform: scale(1.04); }
+    .discover-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-style: italic;
+    }
+    .discover-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 16px;
+    }
+    .discover-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .discover-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .discover-quote {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      border-left: 3px solid var(--blue-deep);
+      padding-left: 20px;
+      margin: 24px 0;
+    }
+    .discover-quote cite {
+      display: block;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      font-style: normal;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border: 2px solid var(--blue-light);
+      color: var(--blue-light);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+      margin-top: 8px;
+    }
+    .btn-outline:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       NEWS & EVENTS
+    ============================ */
+    .news-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .news-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .news-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      color: var(--black);
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .news-card {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      background: var(--white);
+    }
+    .news-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+    }
+    .news-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: var(--off-white);
+    }
+    .news-body {
+      padding: 28px;
+    }
+    .news-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue-link);
+      margin-bottom: 10px;
+    }
+    .news-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .news-excerpt {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .news-read {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-link);
+    }
+    .news-read:hover { color: var(--blue-hover); }
+
+    /* ============================
+       EDUCATION SECTION
+    ============================ */
+    .education {
+      padding: 120px 0;
+      background: var(--dark-bg);
+    }
+    .education-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .edu-content { order: 2; }
+    .edu-image { order: 1; }
+    .edu-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* ============================
+       CTA BANNER
+    ============================ */
+    .cta-banner {
+      padding: 100px 0;
+      background: var(--blue-deep);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(77,143,255,0.15) 0%, transparent 60%);
+    }
+    .cta-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: var(--black);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-col a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-legal a:hover { color: var(--blue-light); }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      /* Hide sidebar on mobile, show top bar */
+      .sidebar { display: none !important; visibility: hidden !important; width: 0 !important; overflow: hidden !important; }
+      .page-wrapper { margin-left: 0 !important; }
+      .mobile-top-bar { display: flex !important; }
+      .nav-toggle { display: flex; }
+
+      .discover-grid, .education-inner { grid-template-columns: 1fr; gap: 40px; }
+      .edu-content { order: 1; }
+      .edu-image { order: 2; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .quick-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .hero-title { font-size: clamp(40px, 12vw, 72px); }
+      .quote-text { font-size: clamp(20px, 5vw, 28px); }
+      .quote-section, .news-section { padding: 60px 0; }
+      .discover, .education { padding: 80px 0; }
+      .discover-img img, .edu-image img { height: 320px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 100svh; }
+      .hero-cta { padding: 14px 28px; font-size: 12px; }
+      .quick-card { padding: 32px 20px; }
+      .cta-banner { padding: 60px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (Desktop only) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo-area">
+      <a href="beastboogie-exp.html" class="nav-logo">
+        <div class="nav-logo-mark">BB</div>
+        <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="schools.html">Schools</a>
+      <a href="programs.html">Programs</a>
+      <a href="learn-online.html">Learn Online</a>
+      <a href="gallery-exp.html">Gallery</a>
+      <a href="shop.html">Shop</a>
+      <a href="book.html" class="nav-cta">Book Now</a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.tiktok.com/@beastboogie" target="_blank" title="TikTok">T</a>
+      <a href="https://www.instagram.com/beastboogie/" target="_blank" title="Instagram">I</a>
+      <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" title="Facebook">F</a>
+      <a href="https://www.youtube.com/@BeastBoogie" target="_blank" title="YouTube">Y</a>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-top-bar" id="mobileTopBar">
+    <a href="beastboogie-exp.html" class="nav-logo" style="gap: 8px; flex-direction: row; margin: 0;">
+      <div class="nav-logo-mark" style="width: 36px; height: 36px; font-size: 16px;">BB</div>
+      <div class="nav-logo-text" style="font-size: 11px;">BEAST <span>BOOGIE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="schools.html" onclick="closeMenu()">Schools</a>
+    <a href="programs.html" onclick="closeMenu()">Programs</a>
+    <a href="learn-online.html" onclick="closeMenu()">Learn Online</a>
+    <a href="gallery-exp.html" onclick="closeMenu()">Gallery</a>
+    <a href="shop.html" onclick="closeMenu()">Shop</a>
+    <a href="book.html" onclick="closeMenu()" class="mob-cta">Book Now</a>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper" id="pageWrapper">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">28 Years Breaking &middot; Houston, TX</div>
+      <h1 class="hero-title">BEAST <span>BOOGIE</span></h1>
+      <p class="hero-subtitle">B-Boy. Educator. Legend.</p>
+      <a href="book.html" class="hero-cta">Book Beast Boogie &rarr;</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container reveal">
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">One of the most electrifying breakdance educators in the country — a performer who commands every stage he touches.</p>
+      <p class="quote-attr">&mdash; Houston Chronicle</p>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <section class="quick-links">
+    <div class="container">
+      <div class="quick-grid">
+        <a href="about.html" class="quick-card reveal reveal-delay-1">
+          <div class="quick-icon">🎤</div>
+          <h3 class="quick-title">About Anthony</h3>
+          <p class="quick-desc">28 years of breaking, performing, and teaching — from Houston streets to world stages.</p>
+          <span class="quick-link">Discover &rarr;</span>
+        </a>
+        <a href="schools.html" class="quick-card reveal reveal-delay-2">
+          <div class="quick-icon">🏫</div>
+          <h3 class="quick-title">School Assemblies</h3>
+          <p class="quick-desc">The assembly that gets standing ovations. Book the creator your students actually watch.</p>
+          <span class="quick-link">Learn More &rarr;</span>
+        </a>
+        <a href="programs.html" class="quick-card reveal reveal-delay-3">
+          <div class="quick-icon">🔥</div>
+          <h3 class="quick-title">Programs & Camps</h3>
+          <p class="quick-desc">Birthday parties, public camps, workshops, and community events that move the crowd.</p>
+          <span class="quick-link">See Programs &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVER -->
+  <section class="discover">
+    <div class="container">
+      <div class="discover-grid">
+        <div class="discover-img reveal">
+          <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80" alt="Beast Boogie performing">
+          <div class="discover-caption">Beast Boogie performing at Red Bull BC One</div>
+        </div>
+        <div class="reveal">
+          <div class="discover-eyebrow">Discover Our Story</div>
+          <h2 class="discover-title">Multidisciplinary Artist. Passionate Educator. Global Performer.</h2>
+          <p class="discover-text">From his roots in Houston to the world's biggest breakdance stages, Anthony "Beast Boogie" Silva has dedicated 28 years to the art of breaking — competing, teaching, and inspiring generations of dancers.</p>
+          <div class="discover-quote">
+            "Dance taught me discipline, confidence, and how to express myself. I want every single person to feel that too."
+            <cite>&mdash; Anthony "Beast Boogie" Silva</cite>
+          </div>
+          <a href="about.html" class="btn-outline">Step Inside &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS & EVENTS -->
+  <section class="news-section">
+    <div class="container">
+      <div class="news-header">
+        <h2>Latest News &amp; Upcoming Events</h2>
+      </div>
+      <div class="news-grid">
+        <div class="news-card reveal reveal-delay-1">
+          <div class="news-img" style="background: linear-gradient(135deg, #001487 0%, #1e73be 100%); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 48px;">🏆</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag">Competition</div>
+            <h3 class="news-title">80+ Battle Victories Worldwide</h3>
+            <p class="news-excerpt">From Red Bull BC One Texas to B-Boy City, Beast Boogie's competitive legacy spans decades of dominance.</p>
+            <a href="about.html" class="news-read">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card reveal reveal-delay-2">
+          <div class="news-img" style="background: linear-gradient(135deg, #1a2222 0%, #001487 100%); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 48px;">🏫</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag">Education</div>
+            <h3 class="news-title">100,000+ Students Taught In Person</h3>
+            <p class="news-excerpt">Schools across the globe book Beast Boogie for assemblies that get kids moving and inspired.</p>
+            <a href="schools.html" class="news-read">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card reveal reveal-delay-3">
+          <div class="news-img" style="background: linear-gradient(135deg, #001487 0%, #4d8fff 100%); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 48px;">📱</span>
+          </div>
+          <div class="news-body">
+            <div class="news-tag">Digital</div>
+            <h3 class="news-title">Millions Reached Through Online Content</h3>
+            <p class="news-excerpt">Beast Boogie's TikTok and Instagram bring breaking to a new generation of dancers worldwide.</p>
+            <a href="learn-online.html" class="news-read">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="education">
+    <div class="container">
+      <div class="education-inner">
+        <div class="edu-content reveal">
+          <div class="discover-eyebrow">The B-Boy Dojo</div>
+          <h2 class="discover-title">Learn Breaking From a Legend</h2>
+          <p class="discover-text">The B-Boy Dojo is Beast Boogie's online academy — comprehensive courses for beginners through advanced breakers. Learn top rock, footwork, power moves, and performance technique at your own pace.</p>
+          <p class="discover-text">Whether you're 6 or 60, there's a class designed for your level. Beast Boogie breaks down every move with the same energy he brings to the stage.</p>
+          <a href="learn-online.html" class="btn-outline">Start Learning &rarr;</a>
+        </div>
+        <div class="edu-image reveal">
+          <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=800&q=80" alt="Breakdancing class">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner reveal">
+      <h2>Book Beast Boogie Today</h2>
+      <p>School assemblies, birthday parties, corporate events, workshops, and performances. Bring the energy to your next event.</p>
+      <a href="book.html" class="btn-white">Get in Touch &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="beastboogie-exp.html" class="nav-logo" style="flex-direction: row; gap: 10px;">
+            <div class="nav-logo-mark">BB</div>
+            <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+          </a>
+          <p class="footer-about">Anthony "Beast Boogie" Silva is a Houston-based B-Boy, educator, and performer with 28 years of experience. From school assemblies to global stages, he's dedicated his life to sharing the art of breaking.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Anthony</a></li>
+            <li><a href="gallery-exp.html">Gallery</a></li>
+            <li><a href="about.html">Achievements</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="schools.html">School Assemblies</a></li>
+            <li><a href="programs.html">Public Camps</a></li>
+            <li><a href="programs.html">Birthday Parties</a></li>
+            <li><a href="programs.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="learn-online.html">B-Boy Dojo</a></li>
+            <li><a href="learn-online.html">Online Courses</a></li>
+            <li><a href="learn-online.html">Tutorials</a></li>
+            <li><a href="shop.html">Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="mailto:info@beastboogie.com">Email Us</a></li>
+            <li><a href="#">Houston, TX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Beast Boogie Entertainment. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div><!-- close page-wrapper -->
+
+  <script>
+    // Set active nav link on page load
+    function setActiveNav() {
+      const currentPage = window.location.pathname.split('/').pop() || 'beastboogie-exp.html';
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'beastboogie-exp.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize + force sidebar hide on mobile (fallback for browsers that ignore media queries)
+    function handleResponsive() {
+      var sidebar = document.getElementById('sidebar');
+      var wrapper = document.getElementById('pageWrapper');
+      var topBar = document.getElementById('mobileTopBar');
+      if (window.innerWidth <= 1024) {
+        if (sidebar) sidebar.style.display = 'none';
+        if (wrapper) wrapper.style.marginLeft = '0';
+        if (topBar) topBar.style.display = 'flex';
+      } else {
+        if (sidebar) sidebar.style.display = '';
+        if (wrapper) wrapper.style.marginLeft = '';
+        if (topBar) topBar.style.display = '';
+      }
+    }
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // Hero parallax on scroll
+    const heroContent = document.querySelector('.hero-content');
+    const heroSection = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const h = heroSection.offsetHeight;
+      if (y < h && heroContent) {
+        const progress = y / h;
+        heroContent.style.transform = `translateY(${y * 0.3}px) scale(${1 - progress * 0.06})`;
+        heroContent.style.opacity = 1 - progress * 1.3;
+      }
+    }, { passive: true });
+
+    // Scroll reveal animation system
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const observerOptions = {
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+
+    // Initialize on load
+    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); initScrollReveal(); });
+    setActiveNav();
+    initScrollReveal();
+  </script>
+</body>
+</html>

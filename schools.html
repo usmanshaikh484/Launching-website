@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>School Assemblies | Beast Boogie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep:    #001487;
+      --blue-link:    #001489;
+      --blue-hover:   #1e73be;
+      --blue-light:   #4d8fff;
+      --dark-bg:      #111a1a;
+      --dark-card:    #1a2222;
+      --dark-border:  rgba(255,255,255,0.08);
+      --white:        #ffffff;
+      --off-white:    #f9f9f9;
+      --cream:        #cecece;
+      --gray:         #777777;
+      --black:        #000000;
+      --orange:       #FF5500;
+      --font-serif:   'Bodoni Moda', Georgia, serif;
+      --font-sans:    'Open Sans', -apple-system, sans-serif;
+      --font-display: 'Bebas Neue', impact, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark-bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--blue-deep); color: var(--white); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================
+       SIDEBAR NAVIGATION (Desktop)
+    ============================ */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 250px;
+      background: rgb(0, 0, 0);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 30px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .nav-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-deep);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .nav-logo-text span { color: var(--blue-light); }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      position: relative;
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-hover);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-hover);
+      border-left-color: var(--blue-hover);
+      background: rgba(30, 115, 190, 0.08);
+    }
+
+    .nav-cta {
+      background: var(--blue-deep) !important;
+      color: var(--white) !important;
+      padding: 12px 28px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      transition: all 0.3s ease !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      width: auto !important;
+      border-left: none !important;
+      margin: 20px 0 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover) !important;
+      transform: translateY(-2px);
+    }
+
+    .sidebar-social {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0 30px;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+
+    /* Mobile toggle (hidden by default) */
+    .mobile-top-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      z-index: 998;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mobile-top-bar.show { display: flex; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 997;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding-top: 40px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 16px 20px;
+      width: 100%;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--blue-hover);
+    }
+
+    .mobile-menu .mob-cta {
+      background: var(--blue-deep);
+      color: var(--white) !important;
+      padding: 14px 36px !important;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 20px 0;
+      width: auto;
+    }
+
+    .mobile-menu .mob-cta:hover {
+      background: var(--blue-hover);
+    }
+
+    /* Page wrapper with left margin */
+    .page-wrapper {
+      margin-left: 250px;
+    }
+
+    /* ============================
+       HERO SECTION
+    ============================ */
+    .hero {
+      position: relative;
+      width: 100%;
+      padding: 200px 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--blue-deep);
+      margin-top: 0;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(77,143,255,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease both;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s ease 0.15s both;
+    }
+    .hero-title span { color: var(--blue-light); }
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      animation: fadeInUp 0.8s ease 0.45s both;
+    }
+    .breadcrumb span { color: var(--blue-light); }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================
+       SCROLL REVEAL ANIMATIONS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
+       OVERVIEW SECTION
+    ============================ */
+    .overview {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .overview-img {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .overview-img img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .overview-img:hover img { transform: scale(1.04); }
+    .overview-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .overview-content p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .overview-highlight {
+      font-weight: 600;
+      color: var(--blue-deep);
+    }
+
+    /* ============================
+       BENEFITS GRID
+    ============================ */
+    .benefits {
+      padding: 100px 0;
+      background: var(--blue-deep);
+    }
+    .benefits-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .benefits-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .benefits-header p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 48px 32px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      border-color: var(--blue-deep);
+    }
+    .benefit-icon {
+      font-size: 44px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .benefit-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .benefit-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.7;
+    }
+
+    /* ============================
+       HOW IT WORKS
+    ============================ */
+    .how-it-works {
+      padding: 100px 0;
+      background: var(--dark-bg);
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .how-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .how-header p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--cream);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .how-step {
+      position: relative;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .how-step:hover {
+      background: rgba(77,143,255,0.1);
+      border-color: var(--blue-light);
+    }
+    .how-step-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--blue-light);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+    .how-step h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .how-step p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    .how-step::after {
+      content: '';
+      position: absolute;
+      right: -21px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--blue-light);
+    }
+    .how-step:last-child::after {
+      display: none;
+    }
+
+    /* ============================
+       TESTIMONIALS
+    ============================ */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .testimonials-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    .testimonial-card {
+      background: var(--off-white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 8px;
+      padding: 40px;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-color: var(--blue-deep);
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--black);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 40px;
+      color: var(--blue-light);
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      transition: all 0.4s ease;
+    }
+    .testimonial-card:hover .testimonial-quote::before {
+      transform: scale(1.2);
+    }
+    .testimonial-author {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .testimonial-role {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+
+    /* ============================
+       CTA SECTION
+    ============================ */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--blue-deep);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(77,143,255,0.15) 0%, transparent 60%);
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.35s ease;
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: var(--black);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--cream);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-col a:hover { color: var(--blue-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-legal a:hover { color: var(--blue-light); }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      .sidebar { display: none !important; visibility: hidden !important; width: 0 !important; overflow: hidden !important; }
+      .page-wrapper { margin-left: 0 !important; }
+      .mobile-top-bar { display: flex !important; }
+      .nav-toggle { display: flex; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-step::after { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .overview-img img { height: 300px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 450px; padding: 100px 0 60px; }
+      .hero-title { font-size: clamp(36px, 10vw, 60px); }
+      .overview, .benefits, .how-it-works, .testimonials, .cta-section { padding: 60px 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 400px; padding: 80px 0 40px; }
+      .hero-title { font-size: clamp(32px, 12vw, 48px); }
+      .benefit-card { padding: 28px 16px; }
+      .how-step { padding: 32px 20px; }
+      .testimonial-card { padding: 28px; }
+      .cta-section { padding: 60px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (Desktop only) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo-area">
+      <a href="beastboogie-exp.html" class="nav-logo">
+        <div class="nav-logo-mark">BB</div>
+        <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="schools.html" class="active">Schools</a>
+      <a href="programs.html">Programs</a>
+      <a href="learn-online.html">Learn Online</a>
+      <a href="gallery-exp.html">Gallery</a>
+      <a href="shop.html">Shop</a>
+      <a href="book.html" class="nav-cta">Book Now</a>
+    </nav>
+
+    <div class="sidebar-social">
+      <a href="https://www.tiktok.com/@beastboogie" target="_blank" title="TikTok">T</a>
+      <a href="https://www.instagram.com/beastboogie/" target="_blank" title="Instagram">I</a>
+      <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" title="Facebook">F</a>
+      <a href="https://www.youtube.com/@BeastBoogie" target="_blank" title="YouTube">Y</a>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-top-bar" id="mobileTopBar">
+    <a href="beastboogie-exp.html" class="nav-logo" style="gap: 8px; flex-direction: row; margin: 0;">
+      <div class="nav-logo-mark" style="width: 36px; height: 36px; font-size: 16px;">BB</div>
+      <div class="nav-logo-text" style="font-size: 11px;">BEAST <span>BOOGIE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="schools.html" onclick="closeMenu()" class="active">Schools</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="programs.html" onclick="closeMenu()">Programs</a>
+    <a href="learn-online.html" onclick="closeMenu()">Learn Online</a>
+    <a href="gallery-exp.html" onclick="closeMenu()">Gallery</a>
+    <a href="shop.html" onclick="closeMenu()">Shop</a>
+    <a href="book.html" onclick="closeMenu()" class="mob-cta">Book Now</a>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper" id="pageWrapper">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">School <span>Assemblies</span></h1>
+      <p class="hero-subtitle">The Assembly That Gets Standing Ovations</p>
+      <div class="breadcrumb">
+        <a href="beastboogie-exp.html">Home</a> / <span>School Assemblies</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="overview reveal">
+    <div class="container">
+      <div class="overview-grid">
+        <div class="overview-img">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e5fc52?w=800&q=80" alt="School assembly with students">
+        </div>
+        <div class="overview-content">
+          <h2>Bring TikTok Energy to Your Gymnasium</h2>
+          <p>Beast Boogie has taught <span class="overview-highlight">100,000+ students</span> in person through school assemblies that leave audiences electrified. His performances combine <span class="overview-highlight">jaw-dropping breakdancing</span> with authentic lessons about confidence, perseverance, and self-expression.</p>
+          <p>With 28 years of professional breaking experience and millions of social media followers, Beast Boogie brings the energy your students actually care about — and keeps them engaged from the opening beat to the standing ovation.</p>
+          <p>Whether your school needs motivation, entertainment, or positive cultural influence, Beast Boogie assemblies are 60-90 minute experiences that students remember for years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS GRID -->
+  <section class="benefits reveal">
+    <div class="container">
+      <div class="benefits-header">
+        <h2>Why Schools Choose Beast Boogie</h2>
+        <p>Every assembly is designed to energize, inspire, and leave a lasting positive impact on your student body.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3 class="benefit-title">Energy & Movement</h3>
+          <p class="benefit-desc">High-octane performances that captivate audiences. Your gym will be buzzing with excitement and positive energy.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <h3 class="benefit-title">Anti-Bullying</h3>
+          <p class="benefit-desc">Positive messaging about acceptance, respect, and celebrating what makes you unique. Direct impact on school culture.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌍</div>
+          <h3 class="benefit-title">Cultural Education</h3>
+          <p class="benefit-desc">Students learn about hip-hop culture, breaking history, and global movement traditions from an authentic voice.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">❤️</div>
+          <h3 class="benefit-title">Inclusive for All Ages</h3>
+          <p class="benefit-desc">Elementary, middle, or high school — Beast Boogie customizes his content and energy to match your audience perfectly.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎤</div>
+          <h3 class="benefit-title">Student Participation</h3>
+          <p class="benefit-desc">Interactive moments invite students on stage. Creates memories and shows that anyone can break with practice.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💪</div>
+          <h3 class="benefit-title">Lasting Impact</h3>
+          <p class="benefit-desc">Students leave inspired by a real artist who turned passion into a global career. A conversation starter for months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works reveal">
+    <div class="container">
+      <div class="how-header">
+        <h2>How It Works</h2>
+        <p>Booking your assembly is simple. We handle the details.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Book Your Date</h3>
+          <p>Contact us to check availability for your preferred date. We work around your school's schedule and assembly time.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Customize Your Show</h3>
+          <p>We discuss grade levels, your school's needs, any special themes, and tech requirements. Every assembly is tailored.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Experience The Magic</h3>
+          <p>Beast Boogie delivers a 60-90 minute assembly packed with incredible performances, lessons, and interactive moments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2>What Schools Are Saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Beast Boogie absolutely blew our students away. The energy, the skill, the positive message — everything about this assembly was perfect. Our kids are still talking about it.</p>
+          <p class="testimonial-author">Dr. Sarah Johnson</p>
+          <p class="testimonial-role">Principal, Lincoln High School</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">We had over 800 students in our gymnasium. The entire audience was completely silent during his performances and erupted into cheers. This is exactly what our school community needed.</p>
+          <p class="testimonial-author">Michael Chen</p>
+          <p class="testimonial-role">Activities Director, Central Middle School</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section reveal">
+    <div class="container cta-inner">
+      <h2>Ready to Book an Assembly?</h2>
+      <p>Contact us today to schedule Beast Boogie for your school. Limited dates available throughout the year.</p>
+      <a href="book.html" class="btn-white">Book Your Assembly &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="beastboogie-exp.html" class="nav-logo">
+            <div class="nav-logo-mark">BB</div>
+            <div class="nav-logo-text">BEAST <span>BOOGIE</span></div>
+          </a>
+          <p class="footer-about">Anthony "Beast Boogie" Silva is a Houston-based B-Boy, educator, and performer with 28 years of experience. From school assemblies to global stages, he's dedicated his life to sharing the art of breaking.</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@beastboogie" target="_blank" aria-label="TikTok">T</a>
+            <a href="https://www.instagram.com/beastboogie/" target="_blank" aria-label="Instagram">I</a>
+            <a href="https://www.facebook.com/BeastBoogieEntertainment/" target="_blank" aria-label="Facebook">F</a>
+            <a href="https://www.youtube.com/@BeastBoogie" target="_blank" aria-label="YouTube">Y</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Anthony</a></li>
+            <li><a href="gallery-exp.html">Gallery</a></li>
+            <li><a href="about.html">Achievements</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="schools.html">School Assemblies</a></li>
+            <li><a href="programs.html">Public Camps</a></li>
+            <li><a href="programs.html">Birthday Parties</a></li>
+            <li><a href="programs.html">Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="learn-online.html">B-Boy Dojo</a></li>
+            <li><a href="learn-online.html">Online Courses</a></li>
+            <li><a href="learn-online.html">Tutorials</a></li>
+            <li><a href="shop.html">Merch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="mailto:info@beastboogie.com">Email Us</a></li>
+            <li><a href="#">Houston, TX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Beast Boogie Entertainment. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div><!-- close page-wrapper -->
+
+  <script>
+    // Set active nav link on page load
+    function setActiveNav() {
+      const currentPage = window.location.pathname.split('/').pop() || 'beastboogie-exp.html';
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'beastboogie-exp.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu on resize + force sidebar hide on mobile (fallback for browsers that ignore media queries)
+    function handleResponsive() {
+      var sidebar = document.getElementById('sidebar');
+      var wrapper = document.getElementById('pageWrapper');
+      var topBar = document.getElementById('mobileTopBar');
+      if (window.innerWidth <= 1024) {
+        if (sidebar) sidebar.style.display = 'none';
+        if (wrapper) wrapper.style.marginLeft = '0';
+        if (topBar) topBar.style.display = 'flex';
+      } else {
+        if (sidebar) sidebar.style.display = '';
+        if (wrapper) wrapper.style.marginLeft = '';
+        if (topBar) topBar.style.display = '';
+      }
+    }
+    window.addEventListener('resize', handleResponsive);
+    handleResponsive();
+
+    // Initialize on load
+    window.addEventListener('load', function() { setActiveNav(); handleResponsive(); });
+    setActiveNav();
+
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      // Fallback for older browsers
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
